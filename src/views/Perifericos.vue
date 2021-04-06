@@ -1,0 +1,66 @@
+<template>
+  <div class="mt-5">
+    <h1>PERIFÉRICOS</h1>
+    
+    <div class=" pagination justify-content-end mr-5">
+      <router-link to="/cadastrarOcorrencia" class="btn btn-success">Cadastrar Periférico</router-link>
+    </div>
+    
+
+    <table class="table table-striped table-hover mt-3 mx-auto text-center col-11 shadow p-3 mb-5 bg-white rounded">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tipo</th>
+          <th>Quantidade</th>
+          <th>Disponível</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+        v-for="periferico in perifericos"
+        :key="periferico.id" 
+        >
+          <td>{{periferico.id}}</td>
+          <td>{{periferico.tipoPeriferico}}</td>
+          <td>{{periferico.quantidade | vazio}}</td>
+          <td>{{periferico.disponivel | fouv}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+
+
+<script>
+import { mapState, mapActions } from 'vuex'
+export default {
+  created() {
+    this.listarPerifericos();
+  },
+  methods: {
+    ...mapActions(['listarPerifericos'])
+  },
+  computed: {
+    ...mapState({
+      perifericos: state => state.perifericos
+    })
+  },
+filters: {
+    fouv(value) {
+      if (value == false) {
+        return  'Indisponível';
+
+      }else if(value == true){
+        return  'Disponível';
+      }
+      else return "Não informado";
+    },
+    vazio(value){
+        if(value == null){
+            return 'Não informado';
+        }else return value
+    }
+  }
+}
+</script>
