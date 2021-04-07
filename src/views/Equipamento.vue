@@ -1,9 +1,9 @@
 <template>
   <div class="mt-5">
     <h1>EQUIPAMENTOS</h1>
-    
+    <hr>
     <div class=" pagination justify-content-end mr-5">
-      <router-link to="/cadastrarOcorrencia" class="btn btn-success">Cadastrar Equipamentos</router-link>
+      <router-link to="/cadastrarequipamento" class="btn btn-success">Cadastrar Equipamentos</router-link>
     </div>
     
 
@@ -13,7 +13,7 @@
           <th>TOMBO</th>
           <th>Tipo</th>
           <th>Marca</th>
-          <th>local</th>
+          <th>Local</th>
           <th>Funciona</th>
         </tr>
       </thead>

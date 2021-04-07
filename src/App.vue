@@ -1,5 +1,5 @@
 <template>
-  <div id="app ">
+  <div id="app">
 
   <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
 
@@ -9,16 +9,16 @@
 
       <div class="profile">
         <img src="assets/img/logoLN.png" alt="" class="img-fluid mt-5">
-        <h1 class="text-light"><router-link to="/">TI LAGOA NOVA</router-link></h1>
+        <h1 class="text-light"><router-link to="/">T.I LAGOA NOVA</router-link></h1>
       </div>
 
       <nav class="nav-menu mt-5 ">
         <ul>
           <li class="active"><router-link to="/"><i class="bx bx-home"></i> <span>Home</span></router-link></li>
-          <li><router-link to="/ocorrencias"><i class="bx bx-file-blank"></i> <span>Ocorrencias</span></router-link></li>
-          <li><router-link to="/equipamentos" ><i class="bx bx-server"></i> <span> Equipamento</span></router-link></li>
-          <li><router-link to="/perifericos"><i class="bx bx-book-content"></i> Periféricos </router-link></li>
-          <li><router-link to="/tecnicos"><i class="bx bx-envelope"></i> Técnicos </router-link></li>
+          <li><router-link to="/ocorrencias"><i class="bx bx-list-ul"></i> <span>Ocorrencias</span></router-link></li>
+          <li><router-link to="/equipamentos" ><i class='bx bx-desktop'></i> <span> Equipamento</span></router-link></li>
+          <li><router-link to="/perifericos"><i class="bx bx-mouse-alt"></i> Periféricos </router-link></li>
+          <li><router-link to="/tecnicos"><i class="bx bx-user"></i> Técnicos </router-link></li>
         </ul>
       </nav>
       <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>

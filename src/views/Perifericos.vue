@@ -1,9 +1,9 @@
 <template>
   <div class="mt-5">
     <h1>PERIFÉRICOS</h1>
-    
+    <hr>    
     <div class=" pagination justify-content-end mr-5">
-      <router-link to="/cadastrarOcorrencia" class="btn btn-success">Cadastrar Periférico</router-link>
+      <router-link to="/cadastrarperiferico" class="btn btn-success">Cadastrar Periférico</router-link>
     </div>
     
 
@@ -47,6 +47,7 @@ export default {
     })
   },
 filters: {
+  //verifica se é verdadeiro ou falso
     fouv(value) {
       if (value == false) {
         return  'Indisponível';
@@ -56,6 +57,8 @@ filters: {
       }
       else return "Não informado";
     },
+
+    // se estiver vazio, no campo aparence como nao informado
     vazio(value){
         if(value == null){
             return 'Não informado';

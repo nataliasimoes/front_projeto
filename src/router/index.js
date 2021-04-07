@@ -33,6 +33,21 @@ const routes = [
     path: '/tecnicos',
     name: 'Tecnicos',
     component: Tecnicos
+  },
+  {
+    path: '/cadastrarocorrencia',
+    name: 'CadastrarOcorrencia',
+    component: () => import( '../views/CadastrarOcorrencia.vue')
+  },
+  {
+    path: '/cadastrarequipamento',
+    name: 'CadastrarEquipamento',
+    component: () => import( '../views/CadastrarEquipamento.vue')
+  },
+  {
+    path: '/cadastrarperiferico',
+    name: 'CadastrarPeriferico',
+    component: () => import( '../views/CadastrarPeriferico.vue')
   }
 ]
 

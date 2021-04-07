@@ -1,9 +1,10 @@
 <template>
   <div class="mt-5">
     <h1>OCORRÊNCIAS</h1>
+    <hr>
     
     <div class=" pagination justify-content-end mr-5">
-      <router-link to="/cadastrarOcorrencia" class="btn btn-success ">Cadastrar Ocorrência</router-link>
+      <router-link to="/cadastrarocorrencia" class="btn btn-success ">Cadastrar Ocorrência</router-link>
     </div>
     
 
@@ -40,9 +41,9 @@ thead{
   }
 
 h1{
-  color: #0B1337;
+  color: #132268;
   margin-left: 50px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .btn-success{

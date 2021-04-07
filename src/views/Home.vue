@@ -33,6 +33,9 @@ setInterval(function(){
     if(mes<10){
       mes = "0"+mes
     }
+    if(segundo<10){
+      segundo = "0"+segundo
+    }
     document.getElementById('hora').textContent = hora+':'+minuto+':'+segundo;
     document.getElementById('data').textContent = dia+'/'+mes+'/'+ano;
 },1000)
