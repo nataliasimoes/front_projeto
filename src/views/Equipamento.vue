@@ -15,24 +15,35 @@
           <th>Marca</th>
           <th>Local</th>
           <th>Funciona</th>
+          <th>Remover</th>
         </tr>
       </thead>
       <tbody>
         <tr
         v-for="equipamento in equipamentos"
-        :key="equipamento.id" 
+        :key="equipamento.tombo" 
         >
           <td>{{equipamento.tombo | vazio}}</td>
           <td>{{equipamento.tipoEquipamento}}</td>
           <td>{{equipamento.marcaEquipamento | vazio}}</td>
           <td>{{equipamento.local | vazio}}</td>
-          <td>{{equipamento.funciona | fouv}}</td>
+          <td :class="{ funciona : equipamento.funciona, naofunciona : !equipamento.funciona}">{{equipamento.funciona | fouv}}</td> 
+          <td><router-link :to="{name: 'RemoverEquipamento', params: { tombo: equipamento.tombo } }"  class='bx bx-x'></router-link></td> 
+          <!-- //@click="removerEquipamento(JSON.stringify(equipamento.tombo))" -->
         </tr>
       </tbody>
     </table>
   </div>
 </template>
 
+<style>
+.funciona{
+  color: green;
+}
+.naofunciona{
+  color: red;
+}
+</style>
 
 <script>
 import { mapState, mapActions } from 'vuex'
@@ -41,7 +52,8 @@ export default {
     this.listarEquipamentos();
   },
   methods: {
-    ...mapActions(['listarEquipamentos'])
+    ...mapActions(['listarEquipamentos']),
+    
   },
   computed: {
     ...mapState({

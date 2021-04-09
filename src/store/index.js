@@ -11,7 +11,13 @@ export default new Vuex.Store({
     perifericos:[],
     ocorrencias: []
   },
-  
+  getters: {
+    get: function(state) {
+      return function(tombo) {
+        return state.equipamento.find((p) => p.tombo == tombo);  
+      }
+    }
+  },
   mutations: {
     setTecnicos(state, listarTecnicos){
       state.tecnicos = listarTecnicos
@@ -41,9 +47,20 @@ export default new Vuex.Store({
       state.tecnicos.push({...tecnico}); //, id: state.animais.length+1
     },
 
+    pegarEquipamento(state,equipamento) {
+      const p = state.equipamentos.find((prod) => prod.tombo == equipamento.tombo);
+      if (p) {
+        state.equipamentos = state.equipamentos.map((prod) => {
+          if (prod.tombo == equipamento.tombo) return equipamento;
+          else return prod;
+        });
+      }
+    },
+
     addPeriferico(state,periferico) {
       state.perifericos.push({...periferico}); //, id: state.animais.length+1
     },
+
   },
   actions: {
 
@@ -85,7 +102,7 @@ export default new Vuex.Store({
     async cadastrarTecnico({commit}, tecnico){
       const resultado = await Axios.post('http://localhost:3000/tecnico', tecnico);
       commit('addTecnico', resultado.data)
-    },
+    }
   },
   modules: {
   }

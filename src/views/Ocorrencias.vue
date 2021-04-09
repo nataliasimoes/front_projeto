@@ -14,7 +14,7 @@
           <th>ID</th>
           <th>Data </th>
           <th>Local</th>
-          <th>Técnico</th>
+          <th>TécnicoID</th>
           <th>Descrição</th>
         </tr>
       </thead>
@@ -43,7 +43,11 @@ thead{
 h1{
   color: #132268;
   margin-left: 50px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+h4, h3{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .btn-success{
@@ -64,7 +68,6 @@ export default {
   computed: {
     ...mapState({
       ocorrencias: state => state.ocorrencias,
-      tecnicos: state => state.tecnicos
     })
   },
 

@@ -39,20 +39,6 @@ export default {
     ...mapState({
       tecnicos: (state) => state.tecnicos,
     }),
-  },
-  filters: {
-    fouv(value) {
-      if (value == false) {
-        return "Não funciona";
-      } else if (value == true) {
-        return "Funciona";
-      } else return "Não informado";
-    },
-    vazio(value) {
-      if (value == null) {
-        return "Não informado";
-      } else return value;
-    },
-  },
+  }
 };
 </script>

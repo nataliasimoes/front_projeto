@@ -48,6 +48,16 @@ const routes = [
     path: '/cadastrarperiferico',
     name: 'CadastrarPeriferico',
     component: () => import( '../views/CadastrarPeriferico.vue')
+  },
+  {
+    path: '/removerequipamento/:tombo',
+    name: 'RemoverEquipamento',
+    component: () => import( '../views/RemoverEquipamento.vue')
+  },
+  {
+    path: '/removerperiferico/:id',
+    name: 'RemoverPeriferico',
+    component: () => import( '../views/RemoverPeriferico.vue')
   }
 ]
 

@@ -14,6 +14,7 @@
           <th>Tipo</th>
           <th>Quantidade</th>
           <th>Disponível</th>
+          <th>Remover</th>
         </tr>
       </thead>
       <tbody>
@@ -24,7 +25,8 @@
           <td>{{periferico.id}}</td>
           <td>{{periferico.tipoPeriferico}}</td>
           <td>{{periferico.quantidade | vazio}}</td>
-          <td>{{periferico.disponivel | fouv}}</td>
+          <td :class="{ funciona : periferico.disponivel, naodisponivel : !periferico.funciona}">{{periferico.disponivel | fouv}}</td>
+          <td><router-link :to="{name: 'RemoverPeriferico', params: { id: periferico.id } }"  class='bx bx-x'></router-link></td>
         </tr>
       </tbody>
     </table>
