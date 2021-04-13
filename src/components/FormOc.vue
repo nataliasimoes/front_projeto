@@ -3,7 +3,7 @@
   <form @submit.prevent="submit" class="col-6 mx-auto mt-5 shadow p-3 mb-5 bg-white rounded">
     <div class="form-group">
       <label for="data">Data</label>
-      <input type="text" name="data" v-model="form.dataOcorrencia" class="form-control" placeholder="xx/xx/xxxx">
+      <input type="date" name="data" v-model="form.dataOcorrencia" class="form-control" placeholder="xx/xx/xxxx">
     </div>
 
     <div class="form-group">
@@ -38,7 +38,7 @@ label{
 export default {
   props: {
     id:Number,
-    dataOcorrencia:String,
+    dataOcorrencia:Date,
     local:String,
     tecnicoId:Number,
     descricao:String,

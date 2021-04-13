@@ -29,7 +29,6 @@
           <td>{{equipamento.local | vazio}}</td>
           <td :class="{ funciona : equipamento.funciona, naofunciona : !equipamento.funciona}">{{equipamento.funciona | fouv}}</td> 
           <td><router-link :to="{name: 'RemoverEquipamento', params: { tombo: equipamento.tombo } }"  class='bx bx-x'></router-link></td> 
-          <!-- //@click="removerEquipamento(JSON.stringify(equipamento.tombo))" -->
         </tr>
       </tbody>
     </table>

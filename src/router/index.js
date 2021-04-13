@@ -58,7 +58,17 @@ const routes = [
     path: '/removerperiferico/:id',
     name: 'RemoverPeriferico',
     component: () => import( '../views/RemoverPeriferico.vue')
-  }
+  },
+  {
+    path: '/consertos',
+    name: 'Consertos',
+    component: () => import( '../views/Consertos.vue')
+  },
+  {
+    path: '/cadastrarconserto',
+    name: 'CadastrarConserto',
+    component: () => import( '../views/CadastrarConserto.vue')
+  },
 ]
 
 const router = new VueRouter({

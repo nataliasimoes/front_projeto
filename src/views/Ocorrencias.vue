@@ -14,7 +14,7 @@
           <th>ID</th>
           <th>Data </th>
           <th>Local</th>
-          <th>TécnicoID</th>
+          <th>Técnico</th>
           <th>Descrição</th>
         </tr>
       </thead>
@@ -24,9 +24,9 @@
         :key="ocorrencia.id" 
         >
           <td>{{ocorrencia.id}}</td>
-          <td>{{ocorrencia.dataOcorrencia}}</td>
+          <td>{{ocorrencia.dataOcorrencia | dataconvert}}</td>
           <td>{{ocorrencia.local}}</td>
-          <td>{{ocorrencia.tecnicoId}}</td>
+          <td>{{ocorrencia.tecnicoId | nome}}</td>
           <td>{{ocorrencia.descricao}}</td>
         </tr>
       </tbody>
@@ -70,6 +70,23 @@ export default {
       ocorrencias: state => state.ocorrencias,
     })
   },
+  filters: {
+    nome(value) {
+      if (value == 1) {
+        return  'Natália';
+
+      }else if(value == 2){
+        return  'Joalison';
+      }
+      else return "Não informado";
+    },
+        dataconvert(value){
+        var str = value;
+        var res = str.split(" ");
+        res = res[0]
+        return res;
+    },
+  }
 
 }
 </script>

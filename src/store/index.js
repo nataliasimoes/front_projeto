@@ -9,7 +9,8 @@ export default new Vuex.Store({
     tecnicos: [],
     equipamentos: [],
     perifericos:[],
-    ocorrencias: []
+    ocorrencias: [],
+    consertos: []
   },
   getters: {
     get: function(state) {
@@ -35,30 +36,28 @@ export default new Vuex.Store({
       state.ocorrencias = listarOcorrencias.reverse()
     },
 
+    setConsertos(state, listarConsertos){
+      state.consertos = listarConsertos.reverse()
+    },
+
     addOcorrencia(state,ocorrencia) {
-      state.ocorrencias.push({...ocorrencia}); //, id: state.animais.length+1
+      state.ocorrencias.push({...ocorrencia}); 
     },
 
     addEquipamento(state,equipamento) {
-      state.equipamentos.push({...equipamento}); //, id: state.animais.length+1
+      state.equipamentos.push({...equipamento}); 
     },
 
     addTecnico(state,tecnico) {
-      state.tecnicos.push({...tecnico}); //, id: state.animais.length+1
-    },
-
-    pegarEquipamento(state,equipamento) {
-      const p = state.equipamentos.find((prod) => prod.tombo == equipamento.tombo);
-      if (p) {
-        state.equipamentos = state.equipamentos.map((prod) => {
-          if (prod.tombo == equipamento.tombo) return equipamento;
-          else return prod;
-        });
-      }
+      state.tecnicos.push({...tecnico}); 
     },
 
     addPeriferico(state,periferico) {
       state.perifericos.push({...periferico}); //, id: state.animais.length+1
+    },
+
+    addConserto(state,conserto) {
+      state.consertos.push({...conserto}); //, id: state.animais.length+1
     },
 
   },
@@ -84,6 +83,11 @@ export default new Vuex.Store({
       commit('setOcorrencias', resposta.data)
     },
 
+    async listarConserto({commit}){
+      const resposta = await Axios.get('http://localhost:3000/conserto');
+      commit('setConsertos', resposta.data)
+    },
+
     async cadastrarOcorrencia({commit}, ocorrencia){
       const resultado = await Axios.post('http://localhost:3000/ocorrencia', ocorrencia);
       commit('addOcorrencia', resultado.data)
@@ -102,6 +106,11 @@ export default new Vuex.Store({
     async cadastrarTecnico({commit}, tecnico){
       const resultado = await Axios.post('http://localhost:3000/tecnico', tecnico);
       commit('addTecnico', resultado.data)
+    },
+
+    async cadastrarConserto({commit}, conserto){
+      const resultado = await Axios.post('http://localhost:3000/conserto', conserto);
+      commit('addConserto', resultado.data)
     }
   },
   modules: {
