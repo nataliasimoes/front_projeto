@@ -28,7 +28,7 @@
           <td>{{equipamento.marcaEquipamento | vazio}}</td>
           <td>{{equipamento.local | vazio}}</td>
           <td :class="{ funciona : equipamento.funciona, naofunciona : !equipamento.funciona}">{{equipamento.funciona | fouv}}</td> 
-          <td><router-link :to="{name: 'RemoverEquipamento', params: { tombo: equipamento.tombo } }"  class='bx bx-x'></router-link></td> 
+          <td><router-link :to="{name: 'RemoverEquipamento', params: { tombo: equipamento.tombo } }"  class='bx bxs-trash'></router-link></td> 
         </tr>
       </tbody>
     </table>
@@ -41,6 +41,10 @@
 }
 .naofunciona{
   color: red;
+}
+.bxs-trash, .bx-edit-alt{
+  font-size: 25px;
+  color: #06A387
 }
 </style>
 

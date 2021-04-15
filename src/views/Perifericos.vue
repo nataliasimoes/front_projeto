@@ -14,6 +14,7 @@
           <th>Tipo</th>
           <th>Quantidade</th>
           <th>Disponível</th>
+          <th>Alterar</th>
           <th>Remover</th>
         </tr>
       </thead>
@@ -26,7 +27,8 @@
           <td>{{periferico.tipoPeriferico}}</td>
           <td>{{periferico.quantidade | vazio}}</td>
           <td :class="{ funciona : periferico.disponivel, naodisponivel : !periferico.funciona}">{{periferico.disponivel | fouv}}</td>
-          <td><router-link :to="{name: 'RemoverPeriferico', params: { id: periferico.id } }"  class='bx bx-x'></router-link></td>
+          <td><router-link :to="{name: 'AlterarPeriferico', params: { id: periferico.id } }"  class='bx bx-edit-alt'></router-link></td>
+          <td><router-link :to="{name: 'RemoverPeriferico', params: { id: periferico.id } }"  class='bx bxs-trash'></router-link></td>
         </tr>
       </tbody>
     </table>

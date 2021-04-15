@@ -60,6 +60,11 @@ const routes = [
     component: () => import( '../views/RemoverPeriferico.vue')
   },
   {
+    path: '/alterariferico/:id',
+    name: 'AlterarPeriferico',
+    component: () => import( '../views/AlterarPeriferico.vue')
+  },
+  {
     path: '/consertos',
     name: 'Consertos',
     component: () => import( '../views/Consertos.vue')

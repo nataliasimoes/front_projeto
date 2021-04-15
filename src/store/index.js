@@ -53,11 +53,23 @@ export default new Vuex.Store({
     },
 
     addPeriferico(state,periferico) {
-      state.perifericos.push({...periferico}); //, id: state.animais.length+1
+      state.perifericos.push({...periferico}); 
     },
 
     addConserto(state,conserto) {
-      state.consertos.push({...conserto}); //, id: state.animais.length+1
+      state.consertos.push({...conserto}); 
+    },
+
+    updatePeriferico(state,periferico) {
+      const p = state.perifericos.find((prod) => prod.id == periferico.id);
+      if (p) {
+        state.perifericos = state.perifericos.map((prod) => {
+          if (prod.id == periferico.id) return periferico;
+          else return prod;
+        });
+      } else {
+        state.perifericos.push(periferico);
+      }
     },
 
   },
@@ -111,7 +123,12 @@ export default new Vuex.Store({
     async cadastrarConserto({commit}, conserto){
       const resultado = await Axios.post('http://localhost:3000/conserto', conserto);
       commit('addConserto', resultado.data)
-    }
+    },
+
+    async alterarPeriferico({ commit },periferico) {
+      const resultado = await Axios.put('http://localhost:3000/periferico/'+periferico.id, periferico);
+      commit('updatePeriferico',resultado.data);
+    },
   },
   modules: {
   }
